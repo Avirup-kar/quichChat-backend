@@ -5,8 +5,6 @@ import cloudinary from "../lib/cloudinary.js"
 
 
 //Signup user
-
-
 export const Signup = async (req, res) => {
    const {email, fullName, password, bio} = req.body
    try {
@@ -40,7 +38,6 @@ export const Signup = async (req, res) => {
 
 
 //Login user
-
 export const Login = async (req, res) => {
     try {
          const {email, password} = req.body
@@ -84,8 +81,9 @@ export const updateProfile = async (req, res) => {
          updateUser = await User.findByIdAndUpdate(userId, {profilePic: upload.secure_url, bio, fullName}, {new: true})
      }
         
-      return res.json({success: true, message: "User updated successfully", user: updateUser})
+      return res.json({success: true, message: "User updated Successfully", user: updateUser})
     } catch (error) {
         return res.json({success: false, message: error.message})
     }
+
 }
